@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;900&display=swap" rel="stylesheet">
+    <title>Pista Nº03</title>
+    <link rel="stylesheet" href="../pistas.css">
+</head>
+<body>
+    <div class="container"> 
+        <h1 class="titulo">Pista Nº 03</h1>
+       <div class="content">
+        <h2 class="pista-3">Sou uma molécula com carbono em minha estrutura,
+            Na fermentação, sou produto da cultura.
+            Em vinhos e cervejas, me encontro em medida,
+            Um brinde à vida, na celebração e na lida.
+            Meu nome é uma dica, e eu sou bem conhecido,
+            Qual é a substância da qual estou falando?</h2>
+
+            <div class="campo-resposta">
+                <input type="text" id="resposta" placeholder="Insira sua Resposta">
+                <input type="button" value="Responder" id="button" onclick="responder()">
+            </div>
+             <p id="mensagem-erro"></p>
+        </div> 
+        <div class="pista-4" style="display: none;">
+            <h4>ACESSE O QR CODE PARA PISTA Nº 04</h4>
+            <img class="qr-code" src="/img/pista-1.png" alt="esse qr code levará para a pista numero 4">
+        </div>
+    </div>
+
+    <script>
+        let inserirResposta = document.getElementById("resposta");
+        let mensagemErro = document.getElementById("mensagem-erro");
+        let divContent = inserirResposta.parentElement.parentElement;
+        let pista4 = document.getElementsByClassName("pista-4")[0];
+
+       
+
+        function responder(){ 
+            let valorResposta = inserirResposta.value;
+            valorResposta = valorResposta.toLowerCase();
+
+            console.log(valorResposta)
+            console.log(divContent)
+
+            if(valorResposta == "álcool") {
+                divContent.style.display = "none";
+                pista4.style.display = "inline-block";
+            }
+
+
+            if(valorResposta != "álcool") {
+                mensagemErro.innerHTML += `<p>TENTE NOVAMENTE POR FAVOR!!</p>`
+            }
+        }
+    </script>
+</body>
+</html>
